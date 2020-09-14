@@ -1,0 +1,85 @@
+body {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.644), rgba(83, 83, 83, 0.685));
+}
+
+.about {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: black;
+    background: rgba(70, 70, 70, 0.6);
+    padding: 10px;
+    border: 3px black;
+    border-radius: 15px;
+}
+
+p {
+    color: rgb(0, 0, 0);
+}
+
+.row {
+    text-align: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    border: 2pt;
+}
+
+.member {
+    float: none;
+    padding: 10px;
+    box-shadow: 0px 8px 4px 0px grey;
+    height: 400px;
+    width: 400px;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.459), rgba(83, 83, 83, 0.534));
+    border-radius: 15px 50px 30px;
+}
+
+.column {
+    float: left;
+    width: 23.5%;
+    padding: 10px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    width: 90%;
+}
+
+.button:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #ffffff;
+}
+
+.button1:hover {
+    background-color: #726c6c;
+    color: white;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #ffffff;
+}
+
+.button2:hover {
+    background-color: #726c6c;
+    color: white;
+}
