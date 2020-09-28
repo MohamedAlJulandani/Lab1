@@ -1,28 +1,29 @@
 .bg-cover {
     background-image: url("../images/background.png");
+    height: 100vh;
     background-position: center;
     background-size: cover;
     background-attachment: scroll;
     background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+}
+
+.container {
+    width: 50%;
 }
 
 .center-me {
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding: 120px;
 }
 
-.form-signin {
-    padding: 40px;
+.signup-form {
+    border-radius: 50px;
+    background-color: #d5d5d5;
+    padding: 20px;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px
 }
 
 input {
-    margin: 10px;
+    margin-bottom: 10px;
 }
