@@ -44,6 +44,9 @@ if ($check > 0) {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
 
+            $sqlImg = "INSERT_INTO_profile (uname) VALUES ('$username')";
+            mysqli_query($conn,$sqlImg);
+
             header("Locatin: ../signup.php?signup.php=success");
             exit();
 

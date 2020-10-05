@@ -1,54 +1,53 @@
-<? php 
+<?php
+include "header.php";
+if (isset($_POST['login'])) {
+     require 'dbhandler.php';
 
-if (isset($_POST['login-submit'])) {
-require 'dbhandler.php'
-$uname_email = $_POST['uname'];
-$passw = $_POST['pwd'];
+     $Email = $_POST['Uname'];
+     $Password = $_POST['pwd'];
 
-if (empty($uname_email) || empty($passw)) {
-    header("Location: ../login.php?error=EmptyField");
-     exit(); 
-}
-
-$sql = "SELECT * FROM users WHERE uname=? OR email=?;";
-$stmt = mysqli_stmt_init($conn);
-if (!mysqli_stmt_prepare($stmt,$sql)) {
-    header("Location: ../login.php?error=SQLInjection");
-    exit(); 
-}
-else {
-mysqli_stmt_bind_param($stmt, "ss" , $uname_email, $uname_email);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$data = mysqli_fetch_assoc($result);
-
-if (empty($data)) {
-    header("Location: ../login.php?error=UserDNE");
-    exit();  
-}
-
-else {
-    $pass_check = password_verify($passw, $data['password']);
-
-    if($pass_check == true) {
-        session_start();
-        $_SESSION['uid'] = $data['uid'];
-        $_SESSION['fname'] = $data['fname'];
-        $_SESSION['username'] = $data['uname'];
-
-        header("Location: ../profile.php?login=Success");
-        exit();
+     if (empty($Email)||empty($password)){
+      header("Location: ../login.php?error=NoEntery");
+      exit();
+     }
+     $SQL = "SELECT * FROM users WHERE Uname =? or Email = ?;";
+     $stmt = mysqli_stmt_init($conn);
+     if(!mysqli_stmt_prepare($stmt,$sql)){
+      header("location:../login.php?error=SQLinjectionAlert");
+      exit();
     }
-    header("Location: ../login.php?error=WrongPass");
-    exit();  
-}
-}
+    else {
+      mysqli_stmt_bind_param($stmt,"ss",$Email,$Email);
+      mysqli_stmt_execute($stmt);
 
-}
+      $result = mysqli_stmt_get_result($stms);
+      $data = mysqli_fetch_assoc($result);
+      if (empty($data)) {
+        header("location:../login.php?error=UserDNE");
+      exit();
+      }
+       else{
+         $pass_check = password_verify($Password,$data['Password']);
+
+
+         if ($pass_check == true ) {
+           session_start();
+           $_SESSION['New ID'] = $data['New ID'];
+           $_SESSION['Fname'] = $data['Fname'];
+           $_SESSION['Uname'] = $data['Uname'];
+           header("location:../profile.php?succ=Login");
+           exit();
+
+         }
+         else {
+          header("location:../login.php?error=PassNotmatch");
+          exit();
+         }
+       }
+    }
 
 }
 else{
-    header("Location: ../login.php?error=WrongPass");
-    exit();  
+  header("Location: ../login.php");
+  exit();
 }
-?>
