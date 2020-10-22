@@ -20,13 +20,13 @@ echo 'SQL Failure';
     while($row =mysqli_fetch_assoc($result)){
    
         echo '<div class ="card">
-        <a href="#">
+        <a href="review.php">
         <img src ="images/'.$row["picpath"].'">
         <h3> '.$row["title"].'</h3>
         <p>'.$row["discription"].'</p>
         </a>
         </div>';
-
+ 
     }
 }
     ?>
